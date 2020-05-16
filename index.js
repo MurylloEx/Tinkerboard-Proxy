@@ -25,9 +25,9 @@ const proxy_cfg = {
         middlewares: [
             Waf.WafMiddleware(rules.DefaultSettings)
         ],
-        sslkey: '',
-        sslcert: '',
-        sslchain: ''
+        sslkey: '/etc/letsencrypt/live/muryllo.com.br/privkey.pem',
+        sslcert: '/etc/letsencrypt/live/muryllo.com.br/cert.pem',
+        sslchain: '/etc/letsencrypt/live/muryllo.com.br/chain.pem'
     },
     proxies: [
         {
