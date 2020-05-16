@@ -1,0 +1,29 @@
+{
+  "name": "tinkerboard-proxy",
+  "version": "0.1.0",
+  "description": "Servidor de proxy reverso balanceador do Tinkerboard.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MurylloEx/Tinkerboard-Proxy.git"
+  },
+  "keywords": [
+    "proxy",
+    "webservice",
+    "api",
+    "covid"
+  ],
+  "author": "Muryllo Pimenta & Rebase TEAM",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MurylloEx/Tinkerboard-Proxy/issues"
+  },
+  "homepage": "https://github.com/MurylloEx/Tinkerboard-Proxy#readme",
+  "dependencies": {
+    "magic-reverse-proxy": "0.0.1",
+    "mini-waf": "^0.3.96"
+  }
+}
