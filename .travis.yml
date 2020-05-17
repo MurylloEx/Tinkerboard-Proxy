@@ -1,4 +1,4 @@
-sudo: false
+sudo: true
 language: node_js
 node_js:
   - "lts/*"
@@ -6,4 +6,4 @@ cache:
   npm: false
 before_install:
   - npm install
-  - node index.js
+  - sudo node index.js
