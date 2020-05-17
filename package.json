@@ -4,7 +4,7 @@
   "description": "Servidor de proxy reverso balanceador do Tinkerboard.",
   "main": "index.js",
   "scripts": {
-    "test": "node tests.js && echo \"Successfully tested!\" && exit 1;"
+    "test": "node index.js --test && exit 0;"
   },
   "repository": {
     "type": "git",

@@ -2,24 +2,27 @@ const magicproxy = require('magic-reverse-proxy');
 const Waf = require('mini-waf/wafbase');
 const rules = require('mini-waf/wafrules');
 
+const HTTP_PORT = (process.argv[2].toLowerCase() == '--test' ? 80 : 55100);
+const HTTPS_PORT = (process.argv[2].toLowerCase() == '--test' ? 443 : 55101);
+
 const proxy_cfg = {
-    enable_hsts: true,
+    enable_hsts: (process.argv[2].toLowerCase() != '--test' ? true : false),
     allow_unknown_host: true,
     http: {
-        port: 80,
+        port: HTTP_PORT,
         enabled: true,
         start_callback: function () {
-            console.log('Started HTTP service in port 80.');
+            console.log(`Started HTTP service in port 80.`);
         },
         middlewares: [
             Waf.WafMiddleware(rules.DefaultSettings)
         ]
     },
     https: {
-        port: 443,
-        enabled: true,
+        port: HTTPS_PORT,
+        enabled: (process.argv[2].toLowerCase() != '--test' ? true : false),
         start_callback: function () { 
-            console.log('Started HTTPS service in port 443.');
+            console.log(`Started HTTPS service in port ${HTTPS_PORT}.`);
         },
         middlewares: [
             Waf.WafMiddleware(rules.DefaultSettings)
@@ -64,3 +67,7 @@ const proxy_cfg = {
 const proxy = magicproxy(proxy_cfg);
 
 proxy.bind();
+
+if (process.argv[2].toLowerCase() == '--test'){
+    process.exit(0);
+}
