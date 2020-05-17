@@ -5,4 +5,5 @@ cache:
   npm: false
 before_install:
   - npm install
-  - node index.js
+script:
+  - npm test

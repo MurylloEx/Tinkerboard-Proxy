@@ -1,16 +1,15 @@
-
 const magicproxy = require('magic-reverse-proxy');
 const Waf = require('mini-waf/wafbase');
 const rules = require('mini-waf/wafrules');
 
 const proxy_cfg = {
-    enable_hsts: false,
+    enable_hsts: true,
     allow_unknown_host: true,
     http: {
-        port: 55100,
+        port: 80,
         enabled: true,
         start_callback: function () {
-            console.log('Started HTTP service in port 55100.');
+            console.log('Started HTTP service in port 80.');
         },
         middlewares: [
             Waf.WafMiddleware(rules.DefaultSettings)
@@ -18,7 +17,7 @@ const proxy_cfg = {
     },
     https: {
         port: 443,
-        enabled: false,
+        enabled: true,
         start_callback: function () { 
             console.log('Started HTTPS service in port 443.');
         },
