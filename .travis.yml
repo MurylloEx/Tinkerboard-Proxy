@@ -1,8 +1,9 @@
 sudo: false
 language: node_js
+node_js:
+  - "lts/*"
 cache:
   npm: false
 before_install:
-  - npm i -g nodemon
   - npm install
   - node index.js
