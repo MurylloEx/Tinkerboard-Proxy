@@ -4,7 +4,7 @@ const Waf = require('mini-waf/wafbase');
 const rules = require('mini-waf/wafrules');
 
 const proxy_cfg = {
-    enable_hsts: true,
+    enable_hsts: false,
     allow_unknown_host: true,
     http: {
         port: 80,
@@ -18,7 +18,7 @@ const proxy_cfg = {
     },
     https: {
         port: 443,
-        enabled: true,
+        enabled: false,
         start_callback: function () { 
             console.log('Started HTTPS service in port 443.');
         },
