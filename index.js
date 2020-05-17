@@ -7,10 +7,10 @@ const proxy_cfg = {
     enable_hsts: false,
     allow_unknown_host: true,
     http: {
-        port: 80,
+        port: 55100,
         enabled: true,
         start_callback: function () {
-            console.log('Started HTTP service in port 80.');
+            console.log('Started HTTP service in port 55100.');
         },
         middlewares: [
             Waf.WafMiddleware(rules.DefaultSettings)
