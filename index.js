@@ -2,11 +2,15 @@ const magicproxy = require('magic-reverse-proxy');
 const Waf = require('mini-waf/wafbase');
 const rules = require('mini-waf/wafrules');
 
-const HTTP_PORT = (process.argv[2].toLowerCase() == '--test' ? 80 : 55100);
-const HTTPS_PORT = (process.argv[2].toLowerCase() == '--test' ? 443 : 55101);
+function is_debugmode(){
+    return process.argv[2] == '--test';
+}
+
+const HTTP_PORT = (!is_debugmode() ? 80 : 55100);
+const HTTPS_PORT = (!is_debugmode() ? 443 : 55101);
 
 const proxy_cfg = {
-    enable_hsts: (process.argv[2].toLowerCase() != '--test' ? true : false),
+    enable_hsts: (!is_debugmode() ? true : false),
     allow_unknown_host: true,
     http: {
         port: HTTP_PORT,
@@ -20,7 +24,7 @@ const proxy_cfg = {
     },
     https: {
         port: HTTPS_PORT,
-        enabled: (process.argv[2].toLowerCase() != '--test' ? true : false),
+        enabled: (!is_debugmode() ? true : false),
         start_callback: function () { 
             console.log(`Started HTTPS service in port ${HTTPS_PORT}.`);
         },
@@ -68,6 +72,6 @@ const proxy = magicproxy(proxy_cfg);
 
 proxy.bind();
 
-if (process.argv[2].toLowerCase() == '--test'){
+if (is_debugmode()){
     process.exit(0);
 }
