@@ -49,6 +49,12 @@ const proxy_cfg = {
             destination: ['http://192.168.0.107:14400/']
         },
         {
+            domain: 'mysql.muryllo.com.br',
+            timeout: 10000,
+            round: 0,
+            destination: ['http://192.168.0.107:7070/phpmyadmin/']
+        },
+        {
             domain: '*.muryllo.com.br',
             timeout: 10000,
             round: 0,
