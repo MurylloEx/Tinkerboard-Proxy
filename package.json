@@ -24,6 +24,6 @@
   "homepage": "https://github.com/MurylloEx/Tinkerboard-Proxy#readme",
   "dependencies": {
     "magic-reverse-proxy": "0.0.4",
-    "mini-waf": "^0.4.97"
+    "mini-waf": "^0.4.98"
   }
 }
