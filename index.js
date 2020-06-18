@@ -40,13 +40,13 @@ const proxy_cfg = {
             domain: 'api-covid.fun',
             timeout: 10000,
             round: 0,
-            destination: ['http://192.168.0.107:14400/']
+            destination: ['http://192.168.0.100:14400/']
         },
         {
             domain: '*.api-covid.fun',
             timeout: 10000,
             round: 0,
-            destination: ['http://192.168.0.107:14400/']
+            destination: ['http://192.168.0.100:14400/']
         },
         {
             domain: 'mysql.muryllo.com.br',
@@ -58,17 +58,17 @@ const proxy_cfg = {
             domain: '*.muryllo.com.br',
             timeout: 10000,
             round: 0,
-            destination: ['http://192.168.0.107:7070/']
+            destination: ['http://192.168.0.100:7070/']
         },
         {
             domain: 'muryllo.com.br',
             timeout: 10000,
             round: 0,
-            destination: ['http://192.168.0.107:7070/']
+            destination: ['http://192.168.0.100:7070/']
         },
     ],
     default_proxy: {
-        destination: ['http://192.168.0.107:7070'],
+        destination: ['http://192.168.0.100:7070'],
         timeout: 10000,
         round: 0
     }
