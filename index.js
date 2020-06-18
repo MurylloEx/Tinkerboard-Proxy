@@ -52,7 +52,7 @@ const proxy_cfg = {
             domain: 'mysql.muryllo.com.br',
             timeout: 10000,
             round: 0,
-            destination: ['http://192.168.0.107:7070/']
+            destination: ['http://localhost:8100/']
         },
         {
             domain: '*.muryllo.com.br',
