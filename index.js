@@ -20,7 +20,8 @@ const proxy_cfg = {
       console.log(`Started HTTP service in port 80.`);
     },
     middlewares: [
-      Waf.WafMiddleware(rules.DefaultSettings)
+      Waf.WafMiddleware(rules.DefaultSettings),
+      Waf.WafSecurityPolicy()
     ]
   },
   https: {
@@ -54,13 +55,15 @@ const proxy_cfg = {
       domain: 'www.muryllo.com.br',
       timeout: 10000,
       round: 0,
-      destination: ['http://192.168.0.100:7070/']
+      destination: ['http://192.168.0.100:7070/'],
+      sockDestination: ['ws://192.168.0.100:14500']
     },
     {
       domain: 'muryllo.com.br',
       timeout: 10000,
       round: 0,
-      destination: ['http://192.168.0.100:7070/']
+      destination: ['http://192.168.0.100:7070/'],
+      sockDestination: ['ws://192.168.0.100:14500']
     },
     {
       domain: 'api-upe.fun',
@@ -100,9 +103,10 @@ const proxy_cfg = {
     }
   ],
   default_proxy: {
-    destination: ['http://192.168.0.100:7070/'],
     timeout: 10000,
-    round: 0
+    round: 0,
+    destination: ['http://192.168.0.100:7070/'],
+    sockDestination: ['ws://192.168.0.100:14500']
   }
 };
 
