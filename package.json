@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/MurylloEx/Tinkerboard-Proxy#readme",
   "dependencies": {
-    "magic-reverse-proxy": "^1.0.8",
+    "magic-reverse-proxy": "^1.1.9",
     "mini-waf": "^0.4.98"
   }
 }
