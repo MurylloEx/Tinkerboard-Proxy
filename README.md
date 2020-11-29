@@ -1,2 +1,2 @@
 # Tinkerboard-Proxy
-A reverse proxy for my Tinkerboard server.
+A reverse proxy for my Tinkerboard server. 
